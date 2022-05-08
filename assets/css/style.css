@@ -1,0 +1,61 @@
+body{
+    background: url(../img/galaxy.gif);
+
+}
+h2{
+    text-align: center;
+    color: #eee;
+    font-size: 40px;
+    text-shadow: 2px 2px #aaa;
+}
+.input-box{
+    margin-top: 50px;
+    text-align: center;
+}
+.input-box input,select{
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    outline: none;
+}
+.input-box button{
+    padding: 10px 20px;
+    border: transparent;
+    cursor: pointer;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #eee;
+}
+.output-box{
+    text-align: center;
+    background-color: rgba(200,200,200,0.2);
+    margin: 40px 50px;
+    padding: 30px;
+    display: flex;
+    
+}
+img{
+    margin: auto;
+}
+.warning-box{
+    background-color: rgba(200,200,200,0.4);
+    display: none;
+    margin: auto;
+    text-align: center;
+
+}
+.warning{
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    margin: 30px 50px;
+}
+.weight-circle{
+    display: none;
+    background-color: rgba(200,200,200,0.5);
+    border-radius: 50%;
+    padding: 40px 30px;
+    margin: 30px;
+
+}
