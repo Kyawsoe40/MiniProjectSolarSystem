@@ -14,7 +14,6 @@ const weightCircle=document.querySelector('.weight-circle');
 button.addEventListener('click',e=>{
     let mass=massInput.value;
     mass=parseFloat(mass);
-    console.log(typeof mass);
     if(mass){
         if(typeof mass!=='number'){
             img.style.display='none';
@@ -32,35 +31,41 @@ button.addEventListener('click',e=>{
             else{
                 let weight;
                 switch(planet){
-                    case 'earth': weight=mass*9.8;
+                    case 'Earth': weight=mass*9.8;
                                   break;
-                    case 'jupiter': weight=mass*23.1;
+                    case 'Jupiter': weight=mass*23.1;
                                   break;
-                    case 'pluto': weight=mass*0.7;
+                    case 'Pluto': weight=mass*0.7;
                                   break;
-                    case 'mercury': weight=mass*3.7;
+                    case 'Mercury': weight=mass*3.7;
                                   break;
-                    case 'venus': weight=mass*8.9;
+                    case 'Venus': weight=mass*8.9;
                                   break;
-                    case 'moon': weight=mass*1.6;
+                    case 'Moon': weight=mass*1.6;
                                   break;
-                    case 'mars': weight=mass*3.7;
+                    case 'Mars': weight=mass*3.7;
                                   break;
-                    case 'saturn': weight=mass*9;
+                    case 'Saturn': weight=mass*9;
                                   break;
-                    case 'uranus': weight=mass*8.7;
+                    case 'Uranus': weight=mass*8.7;
                                   break;
-                    case 'neptune': weight=mass*11;
+                    case 'Neptune': weight=mass*11;
                                   break;
                                   
                 }
-                img.setAttribute('src',`assets/img/${planet}.png`);
+                const count=countDecimals(weight);
+                if(count>=4){
+                    weight=weight.toFixed(3);
+                }
+                let imgName=planet.toLowerCase();
+                img.setAttribute('src',`assets/img/${imgName}.png`);
                 img.style.display='block';
                 weightCircle.textContent=weight+ ' N';
                 weightCircle.style.display='inline-block';
                 warning.textContent='The weight of the object on ';
                 const planetName=document.createElement('span');
                 planetName.textContent=planet;
+                planetName.style.color='#222'
                 warning.appendChild(planetName);
                 warningBox.style.display='inline-block'; 
                 massInput.value='';
@@ -75,3 +80,7 @@ button.addEventListener('click',e=>{
         weightCircle.style.display='none';
     }
 })
+const countDecimals = function (value) {
+    if(Math.floor(value) === value) return 0;
+    return value.toString().split(".")[1].length || 0; 
+}
